@@ -1,0 +1,77 @@
+{% load static from staticfiles %}
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+  <title>Peizhi Zheng</title>
+  <meta name="description" content="Peizhi Zheng is a python/Django software engineer">
+  <link rel='stylesheet' href='https://d33wubrfki0l68.cloudfront.net/css/0c4f68edea9a98fbd953bec63439515e9492c58f/assets/main.css'/>
+  <link rel="canonical" href="https://paigel.com/">
+  <link href="assets/favicons/favicon.ico" rel="shortcut icon">
+
+</head>
+<body class="site">
+  <header>
+  <div class="container-flex">
+    <div class="nav-wrapper">
+      <div class="nav-left">
+        <a href="/">Peizhi Zheng</a></li>
+      </div>
+      <div class="nav-right">
+        <a class="about-link" href="/about">About</a>
+        <a class="about-link" href="/newsletter">Newsletter</a>
+      </div>
+    </div>
+  </div>
+</header>
+<main class="site-content">
+   <div class="container-flex">
+      {% block content %}
+      {% endblock content %}
+    </div>
+  </main>
+  <footer>
+<div class="container-flex">
+  <div class="nav-wrapper">
+    <div class="nav-left">
+      © Peizhi Zheng
+      <!-- <a href="/">Home</a>
+      <a href="/projects">Projects</a>
+      <a href="/about">About</a>
+      <a href="https://github.com/wsvincent">Github</a> -->
+    </div>
+    <div class="nav-right">
+      <a href="mailto:parisa1206@gmail.com">Parisa1206@gmail.com</a>
+    </div>
+  </div>
+</div>
+</footer>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"\ integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4\
+    YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/\
+    JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src ="https://cdnjs.cloudflare.com/ajax/libs/marked/0.6.1/marked.min.js"> </script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+      $(".content-markdown").each(function(){
+        var content = $(this).text()
+        console.log(content)
+        var markedContent = marked(content)
+        console.log(markedContent)
+        $(this).html(markedContent)
+    })
+    $(".content-markdown img").each(function(){
+           $(this).addClass("img-responsive");
+   })
+  })
+    </script>
+    <script id="dsq-count-scr" src="//paigel.disqus.com/count.js" async></script>
+  </body>
+</html>

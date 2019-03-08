@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content%}
+	<h1> Edit "{{ article.title }}"</h1>
+	<form action="" method="post" enctype="multipart/form-data">
+
+    {% csrf_token %}
+
+
+    {% for field in articleForm %}
+        {{ field }} <br />
+    {% endfor %}
+
+    {{ formset.management_form }}
+    {% for form in formset %}
+        {{ form }}
+    {% endfor %}
+		<button class = "btn btn-info ml-2" type = "submit" >Update</button>
+	</form>
+{% endblock content%}

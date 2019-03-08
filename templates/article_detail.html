@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+
+{% block content%}
+<div class="article-entry" >
+	<h2> {{ object.title }}</h2>
+		<p> {{ object.pub_date|date:"N d Y"  }} </p>
+		<div class="thumbnail">
+					 {% if images %}
+						 {% for image in images%}
+								<img src='{{ image.image.url }}' class='img-responsive' />
+							{% endfor %}
+					 {% endif %}
+		</div>
+		<div class="content-markdown">
+		<p>{{ object.body }}</p>
+	</div>
+</div>
+
+	<div id="disqus_thread"></div>
+
+<script>
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://paigel.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+
+{% endblock content%}

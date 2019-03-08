@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content%}
+	<h1> New Article </h1>
+	<form action="" method="post" enctype="multipart/form-data">
+
+    {% csrf_token %}
+    {% for hidden in article_form.hidden_fields %}
+        {{ hidden }}
+    {% endfor %}
+
+    {% for field in article_form %}
+		<tr>
+	         <th>{{ field.label_tag }}</th>
+	         <td>
+	           {{ field.errors }}
+	           {{ field }}
+	           {{ field.help_text }}
+	         </td>
+	       </tr>    {% endfor %}
+
+    {{ formset.management_form }}
+    {% for form in formset %}
+        {{ form }}
+    {% endfor %}
+			<button class = "btn btn-success ml-2" type = "submit" >Save</button>
+	</form>
+{% endblock content%}
