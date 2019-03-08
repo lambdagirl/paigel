@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'blog_project.wsgi.application'
 
 DATABASES = {
     'default': {
-       'ENGINE': 'django.db.backends.postgresql',
+  "ENGINE": "django.db.backends.postgresql_psycopg2", #one of those should work
         'NAME': 'paigel',
         'USER': 'parisa',
         'PASSWORD': 'Parisa521',
