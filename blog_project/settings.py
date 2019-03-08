@@ -78,7 +78,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'blog_project.wsgi.application'
 
 # Database
-
+'''
 DATABASES = {
     'default': {
        'ENGINE': 'django.db.backends.postgresql',
@@ -90,7 +90,13 @@ DATABASES = {
     }
 }
 
-
+'''
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
@@ -138,6 +144,6 @@ REST_FTAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES':'rest_framework.permissons.DjangoModelPermissionsOrAnonReadOnly'
 }
 
-DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+#DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
-DATABASE_URL: 'postgres://priyowogaijuqu:84edade9f253ffab79ed1b167ba54836100815e2b0b44942727630274f31a3d1@ec2-75-101-133-29.compute-1.amazonaws.com:5432/d3ah0pj22rqdhn'
+#DATABASE_URL: 'postgres://priyowogaijuqu:84edade9f253ffab79ed1b167ba54836100815e2b0b44942727630274f31a3d1@ec2-75-101-133-29.compute-1.amazonaws.com:5432/d3ah0pj22rqdhn'
