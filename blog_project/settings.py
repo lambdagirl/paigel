@@ -56,7 +56,6 @@ MIDDLEWARE = [
         'whitenoise.middleware.WhiteNoiseMiddleware',
 
 ]
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ROOT_URLCONF = 'blog_project.urls'
 
@@ -133,7 +132,6 @@ django_heroku.settings(locals())
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
@@ -145,6 +143,4 @@ REST_FTAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES':'rest_framework.permissons.DjangoModelPermissionsOrAnonReadOnly'
 }
 
-#DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
-#DATABASE_URL: 'postgres://priyowogaijuqu:84edade9f253ffab79ed1b167ba54836100815e2b0b44942727630274f31a3d1@ec2-75-101-133-29.compute-1.amazonaws.com:5432/d3ah0pj22rqdhn'
