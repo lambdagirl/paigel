@@ -78,7 +78,7 @@ TEMPLATES = [
 #WSGI_APPLICATION = 'blog_project.wsgi.application'
 ππ
 # Database
-
+'''
 DATABASES = {
     'default': {
        'ENGINE': 'django.db.backends.postgresql',
@@ -88,7 +88,7 @@ DATABASES = {
         'HOST': 'localhost',
         "PORT": '5432',
     }
-}
+}'''
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
