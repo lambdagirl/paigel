@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/1.11/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
+import django_heroku
 
 import os
 import dj_database_url
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'article.apps.ArticleConfig',
     'rest_framework',
+    
 ]
 
 MIDDLEWARE = [
@@ -50,7 +52,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+        'whitenoise.middleware.WhiteNoiseMiddleware',
+
 ]
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ROOT_URLCONF = 'blog_project.urls'
 
@@ -117,6 +122,7 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+django_heroku.settings(locals())
 
 
 # Static files (CSS, JavaScript, Images)
@@ -132,4 +138,6 @@ REST_FTAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES':'rest_framework.permissons.DjangoModelPermissionsOrAnonReadOnly'
 }
 
+DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
+DATABASE_URL: 'postgres://priyowogaijuqu:84edade9f253ffab79ed1b167ba54836100815e2b0b44942727630274f31a3d1@ec2-75-101-133-29.compute-1.amazonaws.com:5432/d3ah0pj22rqdhn'
