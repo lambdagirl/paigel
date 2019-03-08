@@ -78,9 +78,9 @@ WSGI_APPLICATION = 'blog_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+       'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'paigel',
-        'USER': 'paigel',
+        'USER': 'parisa',
         'PASSWORD': 'Parisa521'
 
 
