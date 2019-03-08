@@ -22,8 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = 'c2vcv&^__lcv=92q$yc2mhy&9tf*5j=jwc2yc1m^qh(onsv6@i'
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = 'c2vcv&^__lcv=92q$yc2mhy&9tf*5j=jwc2yc1m^qh(onsv6@i'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', default=False)
@@ -90,13 +89,19 @@ DATABASES = {
     }
 }
 
-'''
+
 DATABASES = {
     'default': dj_database_url.config(
         default=os.environ.get('DATABASE_URL')
     )
 }
-
+'''
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
@@ -137,7 +142,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'assets')]
 MEDIA_ROOT = os.path.join(STATIC_ROOT, "uploads")
 MEDIA_URL = '/uploads/'
-SECURE_SSL_REDIRECT = False
+#SECURE_SSL_REDIRECT = False
 REST_FTAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES':'rest_framework.permissons.DjangoModelPermissionsOrAnonReadOnly'
 }
