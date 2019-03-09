@@ -14,19 +14,15 @@ import django_heroku
 import os
 import dj_database_url
 import psycopg2
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'c2vcv&^__lcv=92q$yc2mhy&9tf*5j=jwc2yc1m^qh(onsv6@i'
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', default=False)
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['paigel.herokuapp.com','*']
 
 
 # Application definition
@@ -74,7 +70,6 @@ TEMPLATES = [
     },
 ]
 
-#WSGI_APPLICATION = 'blog_project.wsgi.application'
 
 # Database
 DATABASES = {
@@ -129,7 +124,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'assets')]
 MEDIA_ROOT = os.path.join(STATIC_ROOT, "uploads")
 MEDIA_URL = '/uploads/'
-#SECURE_SSL_REDIRECT = False
 REST_FTAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES':'rest_framework.permissons.DjangoModelPermissionsOrAnonReadOnly'
 }
