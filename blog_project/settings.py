@@ -19,8 +19,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = 'c2vcv&^__lcv=92q$yc2mhy&9tf*5j=jwc2yc1m^qh(onsv6@i'
 
-DEBUG = os.environ.get('DEBUG', default=False)
-#DEBUG = True
+#DEBUG = os.environ.get('DEBUG', default=False)
+DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 
@@ -74,7 +74,7 @@ TEMPLATES = [
 # Database
 DATABASES = {
     'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+       'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'paigel',
         'USER': 'parisa',
         'PASSWORD': '',
