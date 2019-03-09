@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     'article.apps.ArticleConfig',
     'mediumeditor',
     'rest_framework',
-    
+    'whitenoise.runserver_nostatic', # new!
 ]
 
 MIDDLEWARE = [
@@ -51,7 +51,6 @@ MIDDLEWARE = [
 
 ]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 ROOT_URLCONF = 'blog_project.urls'
 
 TEMPLATES = [
