@@ -1,20 +1,32 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content%}
-	<h1> Edit "{{ article.title }}"</h1>
 	<form action="" method="post" enctype="multipart/form-data">
-
     {% csrf_token %}
 
+		<div id="container">
+            <h3>Title:</h3>
+        	<input class="editable medium-editor-textarea" 
+				name="title" 
+				type="text"
+				id="id_title"
+				value = "{{ object.title }}"
+			{{ object.title }}>
+		</div>
 
-    {% for field in articleForm %}
-        {{ field }} <br />
-    {% endfor %}
-
-    {{ formset.management_form }}
-    {% for form in formset %}
-        {{ form }}
-    {% endfor %}
+		<div id="container">
+	        <h3>Body:</h3>
+        	<textarea class="editable medium-editor-textarea " name="body" >
+				{{object.body}}
+			</textarea>
+    	</div>
+		
 		<button class = "btn btn-info ml-2" type = "submit" >Update</button>
 	</form>
+
 {% endblock content%}
+
+{% block js %}
+	<script src="{% static 'js/medium-editor.js' %}"></script>
+{% endblock js %}

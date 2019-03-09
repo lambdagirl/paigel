@@ -17,11 +17,10 @@ import psycopg2
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 SECRET_KEY = 'c2vcv&^__lcv=92q$yc2mhy&9tf*5j=jwc2yc1m^qh(onsv6@i'
 
-DEBUG = os.environ.get('DEBUG', default=False)
-
+#DEBUG = os.environ.get('DEBUG', default=False)
+DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 
@@ -35,6 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'article.apps.ArticleConfig',
+    'mediumeditor',
     'rest_framework',
     
 ]
@@ -121,7 +121,9 @@ django_heroku.settings(locals())
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'assets')]
+STATICFILES_DIRS = (
+     os.path.join(BASE_DIR, 'static'),
+)
 MEDIA_ROOT = os.path.join(STATIC_ROOT, "uploads")
 MEDIA_URL = '/uploads/'
 REST_FTAMEWORK = {

@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content%}
-	<h1> New Article </h1>
+
+	<h2> New Article </h2>
 	<form action="" method="post" enctype="multipart/form-data">
 
     {% csrf_token %}
@@ -9,15 +10,25 @@
         {{ hidden }}
     {% endfor %}
 
-    {% for field in article_form %}
-		<tr>
-	         <th>{{ field.label_tag }}</th>
-	         <td>
-	           {{ field.errors }}
-	           {{ field }}
-	           {{ field.help_text }}
-	         </td>
-	       </tr>    {% endfor %}
+						<div id="container">
+              {{ article_form.title.label_tag }}
+              <input
+                type="text"
+                class="form-control"
+                id="id_title"
+                name="title"
+                placeholder="Your name"
+                value="{{ article_form.title.value|default:'' }}" >
+              {% if form.title.errors %}
+                <div class="invalid-feedback">
+                  {{ form.title.errors }}
+                </div>
+              {% endif %}
+            </div>
+    <div id="container">
+        <textarea class="editable medium-editor-textarea " name="body" >{{article_form.body.value|default:""}}</textarea>
+    </div>
+
 
     {{ formset.management_form }}
     {% for form in formset %}
@@ -26,3 +37,7 @@
 			<button class = "btn btn-success ml-2" type = "submit" >Save</button>
 	</form>
 {% endblock content%}
+
+     {% block js %}
+<script src="{% static 'js/medium-editor.js' %}"></script>
+      {% endblock js %}

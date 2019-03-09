@@ -38,14 +38,15 @@ class ArticleDeleteView(LoginRequiredMixin, DeleteView):
 
 class ArticleUpdateView(LoginRequiredMixin,UpdateView):
     model = Article
-    #form_class = ImageFormSet
+    form_class = ArticleForm
     template_name = 'article_edit.html'
     login_url = 'login'
 
 
 class ArticleCreateView(LoginRequiredMixin,CreateView):
     model = Article
-    form_class = ArticleForm
+    fields = ['title','body']
+
     template_name = 'article_new.html'
     login_url = 'login'
 

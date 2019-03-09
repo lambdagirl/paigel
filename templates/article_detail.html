@@ -3,7 +3,7 @@
 
 {% block content%}
 <div class="article-entry" >
-	<h2> {{ object.title }}</h2>
+	<h2 class="content-markdown"> {{ object.title }}</h2>
 		<p> {{ object.pub_date|date:"N d Y"  }} </p>
 		<div class="thumbnail">
 					 {% if images %}
@@ -12,8 +12,8 @@
 							{% endfor %}
 					 {% endif %}
 		</div>
-		<div class="content-markdown">
-		<p>{{ object.body }}</p>
+		<div >
+		<p class="content-markdown">{{ object.body }}</p>
 	</div>
 </div>
 

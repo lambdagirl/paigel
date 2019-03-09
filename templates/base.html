@@ -1,4 +1,4 @@
-{% load static from staticfiles %}
+{% load static %}
 
 <html lang="en">
 <head>
@@ -7,11 +7,20 @@
   <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
   <title>Peizhi Zheng</title>
   <meta name="description" content="Peizhi Zheng is a python/Django software engineer">
+  <link  rel="stylesheet" href="{% static 'css/medium-editor.css' %}">
+  <link  rel="stylesheet" href="{% static 'css/medium-editor.min.css' %}">
+  <link  rel="stylesheet" href="{% static 'css/demo.css' %}">
   <link rel='stylesheet' href='https://d33wubrfki0l68.cloudfront.net/css/0c4f68edea9a98fbd953bec63439515e9492c58f/assets/main.css'/>
   <link rel="canonical" href="https://paigel.com/">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/medium-editor/5.23.3/css/medium-editor.min.css'/>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/medium-editor/5.23.3/css/themes/beagle.css'/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-editor/5.23.3/js/medium-editor.min.js"></script>
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css">
+
 
 </head>
 <body class="site">
+
   <header>
   <div class="container-flex">
     <div class="nav-wrapper">
@@ -27,8 +36,12 @@
 </header>
 <main class="site-content">
    <div class="container-flex">
+
+
       {% block content %}
       {% endblock content %}
+      {% block js %}
+      {% endblock js %}
     </div>
   </main>
   <footer>
@@ -48,9 +61,9 @@
 </div>
 </footer>
 
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"\ integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4\
     YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -58,6 +71,7 @@
     JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src ="https://cdnjs.cloudflare.com/ajax/libs/marked/0.6.1/marked.min.js"> </script>
     <script type="text/javascript">
+    
     $(document).ready(function(){
       $(".content-markdown").each(function(){
         var content = $(this).text()
