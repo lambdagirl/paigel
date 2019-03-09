@@ -22,7 +22,7 @@ SECRET_KEY = 'c2vcv&^__lcv=92q$yc2mhy&9tf*5j=jwc2yc1m^qh(onsv6@i'
 
 DEBUG = os.environ.get('DEBUG', default=False)
 
-ALLOWED_HOSTS = ['paigel.herokuapp.com','*']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
